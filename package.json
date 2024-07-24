@@ -1,0 +1,32 @@
+{
+  "name": "shorturl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harmain89/ShortUrl.git"
+  },
+  "keywords": [
+    "short-url",
+    "shorten-url"
+  ],
+  "author": "Harmain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harmain89/ShortUrl/issues"
+  },
+  "homepage": "https://github.com/Harmain89/ShortUrl#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1",
+    "nanoid": "^5.0.7",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
