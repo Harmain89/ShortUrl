@@ -75,7 +75,8 @@ const handleAnalytics = async (req, res) => {
             {
                 $project: {
                     _id: 0,
-                    visitHistory: {
+                    redirectUrl: 1,
+                    visits: {
                         $size: "$visitHistory"
                     }
                 }
@@ -85,7 +86,8 @@ const handleAnalytics = async (req, res) => {
         // console.log(historyCounts[0].visitHistory);
 
         res.status(200).json({
-            visitHistory: historyCounts[0].visitHistory > 0 ? historyCounts[0].visitHistory : 0
+            // visitHistory: historyCounts[0].visitHistory > 0 ? historyCounts[0].visitHistory : 0
+            visitHistory: historyCounts
         })
 
         // res.status(201).json(historyCounts)
@@ -94,9 +96,32 @@ const handleAnalytics = async (req, res) => {
     }
 }
 
+const handleTesting = async(req, res) => {
+    const urls = await URL.find({});
+    // return res.send(urls);
+    return res.end(
+        `
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </head>
+            <body>
+                <ol>
+                    ${urls.map((url) => `<li>${url?.shortId} - ${url?.redirectUrl} - ${url?.visitHistory.length}</li>`).join("")}
+                </ol>
+            </body>
+        </html>
+        `
+    );
+}
+
 
 module.exports = {
     handleGenerateNewShortUrl,
     handleRedirectUrl,
-    handleAnalytics
+    handleAnalytics,
+    handleTesting
 }

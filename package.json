@@ -21,10 +21,12 @@
   },
   "homepage": "https://github.com/Harmain89/ShortUrl#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
     "mongoose": "^8.5.1",
     "nanoid": "^5.0.7",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
