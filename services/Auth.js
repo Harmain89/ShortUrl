@@ -9,7 +9,7 @@ function getUser(id) {
 }
 
 function deleteUserSession(id) {
-    console.log(sessionIdToUser.get(id))
+    // console.log(sessionIdToUser.get(id))
     if(!sessionIdToUser.get(id)) {
         return false;
     }
